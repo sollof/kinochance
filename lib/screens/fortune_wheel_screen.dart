@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
-import 'package:luck_and_roll/roll_button.dart';
+import 'package:luck_and_roll/widgets/roll_button.dart';
 
 class FortuneWheelScreen extends StatefulWidget {
   const FortuneWheelScreen({Key? key}) : super(key: key);
