@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
 import 'package:luck_and_roll/roll_button.dart';
+import 'package:luck_and_roll/screens/fortune_bar_screen.dart';
+import 'package:luck_and_roll/screens/fortune_wheel_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,30 +17,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Luck&Roll Demo',
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: const MyHomePage(title: 'Luck&Roll Demo'),
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => const HomePage(title: 'Luck&Roll Demo'),
+        'wheel': (context) => const FortuneWheelScreen(),
+        'bar': (context) => const FortuneBarScreen(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  StreamController<int> controller = StreamController<int>.broadcast();
-
+class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
-    controller.close();
     super.dispose();
   }
 
@@ -65,26 +69,19 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-                alignment: Alignment.center,
-                height: 100,
-                width: 500,
-                child: FortuneBar(
-                  visibleItemCount: 5,
-                  animateFirst: false,
-                  selected: controller.stream,
-                  items: [for (var it in items) FortuneItem(child: Text(it))],
-                )),
             RollButton(
               onPress: () {
-                setState(() {
-                  controller.add(
-                    Fortune.randomInt(0, items.length),
-                  );
-                });
+                Navigator.pushNamed(context, 'bar');
               },
-              icon: Icons.sync_sharp,
-              text: 'Roll',
+              icon: Icons.crop_3_2_rounded,
+              text: 'Bar',
+            ),
+            RollButton(
+              onPress: () {
+                Navigator.pushNamed(context, 'wheel');
+              },
+              icon: Icons.circle_outlined,
+              text: 'Whell',
             ),
           ],
         ),

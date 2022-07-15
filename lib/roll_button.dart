@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class RollButton extends StatelessWidget {
   final String text;
@@ -53,7 +52,8 @@ class RollButton extends StatelessWidget {
                   ),
                   child: Text(
                     text,
-                    style: Theme.of(ctx).textTheme.headline1!.copyWith(fontSize: textSize, fontWeight: FontWeight.bold),
+                    style: Theme.of(ctx).textTheme.headline1!.copyWith(
+                        fontSize: textSize, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
