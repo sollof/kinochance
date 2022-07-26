@@ -16,6 +16,8 @@ dependencies:
   flutter_fortune_wheel: ^1.2.0
   mongo_dart: ^0.7.4+1
   file_picker: ^4.6.1
+  provider: ^6.0.3
+  multi_select_flutter: ^4.1.2
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +27,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/

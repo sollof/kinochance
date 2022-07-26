@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 
-class RollButton extends StatelessWidget {
-  final String text;
-  final IconData icon;
+class AddButton extends StatelessWidget {
+  final String sign;
   final VoidCallback onPress;
 
   // ignore: use_key_in_widget_constructors
-  const RollButton({
-    required this.text,
-    required this.icon,
+  const AddButton({
+    required this.sign,
     required this.onPress,
   });
 
   @override
   Widget build(BuildContext context) {
-    const height = 75.0;
-    const width = 200.0;
-    const textSize = 33.0;
-    const iconSize = 38.0;
+    const height = 40.0;
+    const width = 60.0;
+    const textSize = 15.0;
 
     return Container(
       width: width,
@@ -27,20 +24,15 @@ class RollButton extends StatelessWidget {
         color: Colors.amber,
         height: height,
         onPressed: onPress,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-        elevation: 10.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        elevation: 5.0,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              color: Colors.white,
-              size: iconSize,
-            ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(1),
               child: Text(
-                text,
+                sign,
                 style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: textSize, fontWeight: FontWeight.bold),
               ),
             ),

@@ -1,31 +1,58 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:luck_and_roll/widgets/file_upload_button.dart';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:luck_and_roll/screens/filters_screen.dart';
 
 import 'package:luck_and_roll/widgets/roll_button.dart';
 import 'package:luck_and_roll/screens/fortune_bar_screen.dart';
 import 'package:luck_and_roll/screens/fortune_wheel_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
+import 'models.dart';
+import 'package:flutter/rendering.dart';
 
-void main() {
-  runApp(const MyApp());
+Future loadAssetData() async {
+  final content = await rootBundle.loadString('assets/core.json', cache: false);
+  return json.decode(content);
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final modelData = await loadAssetData();
+  final filters = FilterModel.initFilters();
+  final model = DataModel.fromJson(modelData);
+
+  // debugPaintSizeEnabled = true;
+  runApp(MyApp(
+    providers: [Provider<DataModel>.value(value: model), Provider<FilterModel>.value(value: filters)],
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final List<SingleChildStatelessWidget> providers;
+
+  const MyApp({Key? key, required this.providers}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Luck&Roll Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
-      initialRoute: 'home',
-      routes: {
-        'home': (context) => const HomePage(title: 'Luck&Roll Demo'),
-        'wheel': (context) => const FortuneWheelScreen(),
-        'bar': (context) => const FortuneBarScreen(),
-      },
-    );
+    return MultiProvider(
+        providers: providers,
+        child: MaterialApp(
+          title: 'SpinRex Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.amber,
+          ),
+          initialRoute: 'home',
+          routes: {
+            'home': (context) => const HomePage(title: 'SpinRex Demo'),
+            'wheel': (context) => const FortuneWheelScreen(),
+            'bar': (context) => const FortuneBarScreen(),
+            'filters': (context) => const FiltersScreen(),
+          },
+        ));
   }
 }
 
@@ -58,19 +85,12 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             RollButton(
               onPress: () {
-                Navigator.pushNamed(context, 'bar');
+                Navigator.pushNamed(context, 'filters');
               },
-              icon: Icons.crop_3_2_rounded,
-              text: 'Bar',
+              icon: Icons.play_arrow,
+              text: 'Spin',
             ),
-            RollButton(
-              onPress: () {
-                Navigator.pushNamed(context, 'wheel');
-              },
-              icon: Icons.circle_outlined,
-              text: 'Whell',
-            ),
-            const FileUploadButton(),
+            RollButton(text: 'Exit', icon: Icons.close, onPress: () => exit(0))
           ],
         ),
       ),
