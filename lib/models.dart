@@ -4,7 +4,7 @@ class DataModel {
   late Map<String, Map<String, Set>> availableParams;
 
   static const Set<String> availableIntegerFilters = {'year', 'duration', 'score'};
-  static const Set<String> availableListFilters = {'tags'};
+  static const Set<String> availableListFilters = {'tags', 'type'};
 
   DataModel({required this.dataTypes, required this.data, required this.availableParams});
 
@@ -115,7 +115,7 @@ class FilterModel {
           return false;
         }
       } else if (DataModel.availableListFilters.contains(filter.key)) {
-        Set<String> unionSet = rowValue.toSet().cast<String>().intersection(filters.values.toSet().cast<String>());
+        Set<String> unionSet = rowValue.toSet().cast<String>().intersection(filter.value.toSet().cast<String>());
         if (unionSet.isEmpty) {
           return false;
         }

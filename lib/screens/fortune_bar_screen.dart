@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_fortune_wheel/flutter_fortune_wheel.dart';
 
-import 'package:luck_and_roll/widgets/roll_button.dart';
+import 'package:spin_rex/widgets/roll_button.dart';
 import 'package:provider/provider.dart';
 
 import '../models.dart';

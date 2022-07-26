@@ -3,11 +3,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:luck_and_roll/screens/filters_screen.dart';
+import 'package:spin_rex/screens/filters_screen.dart';
 
-import 'package:luck_and_roll/widgets/roll_button.dart';
-import 'package:luck_and_roll/screens/fortune_bar_screen.dart';
-import 'package:luck_and_roll/screens/fortune_wheel_screen.dart';
+import 'package:spin_rex/widgets/roll_button.dart';
+import 'package:spin_rex/screens/fortune_bar_screen.dart';
+import 'package:spin_rex/screens/fortune_wheel_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'models.dart';

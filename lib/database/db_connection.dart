@@ -1,4 +1,4 @@
-import 'package:luck_and_roll/database/constants.dart';
+import 'package:spin_rex/database/constants.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 class DBConnection {

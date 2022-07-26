@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:luck_and_roll/widgets/add_button.dart';
-import 'package:luck_and_roll/widgets/multi_selector_widget.dart';
-import 'package:luck_and_roll/widgets/range_slider_widget.dart';
+import 'package:spin_rex/widgets/add_button.dart';
+import 'package:spin_rex/widgets/multi_selector_widget.dart';
+import 'package:spin_rex/widgets/range_slider_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../models.dart';
