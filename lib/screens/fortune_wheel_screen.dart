@@ -67,27 +67,31 @@ class _FortuneWheelScreenState extends State<FortuneWheelScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Container(
-                        alignment: Alignment.center,
-                        height: 400,
-                        width: 500,
-                        child: FortuneWheel(
-                          animateFirst: false,
-                          selected: controller.stream,
-                          items: [for (var it in newItems) FortuneItem(child: Text(it))],
-                        )),
+                    Flexible(
+                        flex: 7,
+                        child: Container(
+                            constraints:
+                                const BoxConstraints(minWidth: 500, minHeight: 400, maxWidth: 1000, maxHeight: 1000),
+                            alignment: Alignment.center,
+                            child: FortuneWheel(
+                              animateFirst: false,
+                              selected: controller.stream,
+                              items: [for (var it in newItems) FortuneItem(child: Text(it))],
+                            ))),
                     const SizedBox(height: 50),
-                    RollButton(
-                      onPress: () {
-                        setState(() {
-                          controller.add(
-                            Fortune.randomInt(0, newItems.length),
-                          );
-                        });
-                      },
-                      icon: Icons.sync_sharp,
-                      text: 'Spin',
-                    ),
+                    Flexible(
+                        flex: 2,
+                        child: RollButton(
+                          onPress: () {
+                            setState(() {
+                              controller.add(
+                                Fortune.randomInt(0, newItems.length),
+                              );
+                            });
+                          },
+                          icon: Icons.sync_sharp,
+                          text: 'Spin',
+                        )),
                   ],
                 )),
           ])),

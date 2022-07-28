@@ -61,14 +61,18 @@ class _FortuneBarScreenState extends State<FortuneBarScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                        alignment: Alignment.center,
                         padding: const EdgeInsets.only(left: 30, right: 30),
                         child: FortuneBar(
                           visibleItemCount: 5,
-                          height: 80,
+                          height: 200,
                           animateFirst: false,
                           selected: controller.stream,
-                          items: [for (var it in items) FortuneItem(child: Text(it))],
+                          items: [
+                            for (var it in items)
+                              FortuneItem(
+                                  child: Text(it),
+                                  style: FortuneItemStyle(textAlign: TextAlign.center, borderWidth: 0.5))
+                          ],
                         )),
                     const SizedBox(height: 50),
                     RollButton(
