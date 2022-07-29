@@ -152,7 +152,7 @@ class _FiltersScreenState extends State<FiltersScreen> with SingleTickerProvider
                               Navigator.pushNamed(context, 'bar');
                             },
                             icon: Icons.rectangle_rounded,
-                            text: 'Barr',
+                            text: 'Bar',
                           ),
                           const SizedBox(width: 30),
                           RollButton(
