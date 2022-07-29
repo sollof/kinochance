@@ -151,7 +151,7 @@ class _FiltersScreenState extends State<FiltersScreen> with SingleTickerProvider
                             onPress: () {
                               Navigator.pushNamed(context, 'bar');
                             },
-                            icon: Icons.crop_3_2_rounded,
+                            icon: Icons.rectangle_rounded,
                             text: 'Bar',
                           ),
                           const SizedBox(width: 30),
@@ -159,8 +159,8 @@ class _FiltersScreenState extends State<FiltersScreen> with SingleTickerProvider
                             onPress: () {
                               Navigator.pushNamed(context, 'wheel');
                             },
-                            icon: Icons.circle_outlined,
-                            text: 'Whell',
+                            icon: Icons.circle_rounded,
+                            text: 'Wheel',
                           ),
                         ]))
               ])))

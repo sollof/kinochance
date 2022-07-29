@@ -75,6 +75,14 @@ class _FortuneWheelScreenState extends State<FortuneWheelScreen> {
                             alignment: Alignment.center,
                             child: FortuneWheel(
                               animateFirst: false,
+                              indicators: const <FortuneIndicator>[
+                                FortuneIndicator(
+                                  alignment: Alignment.centerRight, // <-- changing the position of the indicator
+                                  child: TriangleIndicator(
+                                    color: Colors.black, // <-- changing the color of the indicator
+                                  ),
+                                ),
+                              ],
                               selected: controller.stream,
                               items: [for (var it in newItems) FortuneItem(child: Text(it))],
                             ))),
