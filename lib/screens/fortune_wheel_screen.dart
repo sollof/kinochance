@@ -79,7 +79,7 @@ class _FortuneWheelScreenState extends State<FortuneWheelScreen> {
                                 FortuneIndicator(
                                   alignment: Alignment.centerRight, // <-- changing the position of the indicator
                                   child: TriangleIndicator(
-                                    color: Colors.white, // <-- changing the color of the indicator
+                                    color: Colors.black, // <-- changing the color of the indicator
                                   ),
                                 ),
                               ],

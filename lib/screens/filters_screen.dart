@@ -160,7 +160,7 @@ class _FiltersScreenState extends State<FiltersScreen> with SingleTickerProvider
                               Navigator.pushNamed(context, 'wheel');
                             },
                             icon: Icons.circle_rounded,
-                            text: 'Wheel',
+                            text: 'Weel',
                           ),
                         ]))
               ])))
