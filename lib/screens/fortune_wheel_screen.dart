@@ -84,7 +84,7 @@ class _FortuneWheelScreenState extends State<FortuneWheelScreen> {
                                 ),
                               ],
                               selected: controller.stream,
-                              items: [for (var it in newItems) FortuneItem(child: Text(it))],
+                              items: [for (var it in newItems) FortuneItem(child: Text(it, textAlign: TextAlign.center))],
                             ))),
                     const SizedBox(height: 50),
                     Flexible(
