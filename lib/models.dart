@@ -115,8 +115,7 @@ class FilterModel {
           return false;
         }
       } else if (DataModel.availableListFilters.contains(filter.key)) {
-        Set<String> unionSet = rowValue.toSet().cast<String>().intersection(filter.value.toSet().cast<String>());
-        if (unionSet.isEmpty) {
+        if (!rowValue.toSet().cast<String>().containsAll(filter.value.toSet().cast<String>())) {
           return false;
         }
       } else {
